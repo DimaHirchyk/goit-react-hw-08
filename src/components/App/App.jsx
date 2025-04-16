@@ -5,10 +5,23 @@ import AppBar from "../AppBar/AppBar";
 import RegisterPage from "../../page/Register page/RegisterPage";
 import LoginPage from "../../page/LoginPage/LoginPage";
 import ContactPage from "../../page/ContactPage/ContactPage";
+import { useDispatch, useSelector } from "react-redux";
+import { Suspense, useEffect } from "react";
+import { refreshUser } from "../../redux/auth/operations";
+import { selectIsRefreshing } from "../../redux/auth/selector";
 
 function App() {
-  return (
-    <>
+  const dispatch = useDispatch();
+  const isRefresh = useSelector(selectIsRefreshing);
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return isRefresh ? (
+    <strong>Getting user data please wait...</strong>
+  ) : (
+    <Suspense fallback={null}>
       <AppBar />
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
@@ -16,7 +29,7 @@ function App() {
         <Route path="/contacts" element={<ContactPage />}></Route>
         <Route path="/login" element={<LoginPage />}></Route>
       </Routes>
-    </>
+    </Suspense>
   );
 }
 

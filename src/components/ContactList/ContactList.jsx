@@ -11,7 +11,6 @@ export default function ContactList() {
   const dispatch = useDispatch();
 
   const visibleContacts = useSelector(selectVisibleContacts);
-  console.log(visibleContacts);
 
   const handleDelete = (id) => {
     dispatch(deleteContact(id));

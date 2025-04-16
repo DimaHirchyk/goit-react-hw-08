@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router";
 import "./App.css";
-import HomePage from "../../page/HomePage/HomePage";
+import HomePage from "../../pages/HomePage/HomePage";
 import AppBar from "../AppBar/AppBar";
-import RegisterPage from "../../page/Register page/RegisterPage";
-import LoginPage from "../../page/LoginPage/LoginPage";
-import ContactPage from "../../page/ContactPage/ContactPage";
+import RegisterPage from "../../pages/Register page/RegisterPage";
+import LoginPage from "../../pages/LoginPage/LoginPage";
+import ContactPage from "../../pages/ContactPage/ContactPage";
 import { useDispatch, useSelector } from "react-redux";
 import { Suspense, useEffect } from "react";
 import { refreshUser } from "../../redux/auth/operations";

@@ -5,9 +5,9 @@ import {
   selectContact,
   selectIsError,
   selectIsLoading,
-} from "../../redux/contact/selector";
+} from "../../redux/contacts/selector";
 import { useEffect } from "react";
-import { fetchContacts } from "../../redux/contact/operation";
+import { fetchContacts } from "../../redux/contacts/operations";
 
 export default function ContactPage() {
   const dispatch = useDispatch();
